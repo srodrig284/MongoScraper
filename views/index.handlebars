@@ -1,0 +1,17 @@
+
+<div class="container container-background">
+  <div>
+     <h1>Note Scraper</h1>
+  </div>
+
+  <div>
+    <ul>
+      {{#each articles}}
+          <li>
+            {{this.title}}
+            {{this.link}}
+          </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
