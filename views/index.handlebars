@@ -6,29 +6,16 @@
           <li>
               <strong>{{this.title}}</strong>
             <br>
-            <a href="http://www.espn.com"{{this.link}}>READ THIS ARTICLE</a>
+            <a href="http://www.espn.com"{{this.link}} target="_blank">READ THIS ARTICLE</a>
             <br>
-            <form class="add-a-note" action="/articles/{{this._id}}" method="POST">
-                <button class="btn btn-info" type="submit">Add A Note</button>
-            </form>
+                <button class="btn btn-info newNote" data-id={{this._id}} type="submit">Add A Note</button>
+
           </li>
       {{/each}}
     </ul>
   </div>
 
-    <div id="notes">
-        <ul>
-            {{#each articles}}
-                <li>
-                    <strong>{{this.title}}</strong>
-                    <br>
-                    <a href="http://www.espn.com"{{this.link}}>READ THIS ARTICLE</a>
-                    <br>
-                    <form class="add-a-note" action="/articles/{{this._id}}" method="POST">
-                        <button class="btn btn-info" type="submit">Add A Note</button>
-                    </form>
-                </li>
-            {{/each}}
-        </ul>
-    </div>
+  <div id="notes">
+
+  </div>
 </div>
