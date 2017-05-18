@@ -41,7 +41,17 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/espnarticles");
+var databaseUri = 'mongodb://localhost/espnarticles';
+
+if(process.env.MONGODB_URI)
+{
+    mongoose.connect(process.env.MONGODB_URI);
+}
+else
+{
+    mongoose.connect(databaseUri);
+}
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
