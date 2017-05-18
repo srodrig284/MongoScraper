@@ -18,17 +18,14 @@ var Article = require("../models/Article.js");
 
 // Routes
 // =============================================================
-
-// Routes
-// =============================================================
 module.exports = function(app) {
 // A GET request to scrape the echojs website
     app.get("/scrape", function(req, res) {
         // First, we grab the body of the html with request
-        console.log(('got here'));
+        console.log(('got to scrape'));
         request("http://www.espn.com/", function(error, response, html) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
-            console.log("html = ", html);
+            //console.log("html = ", html);
             var $ = cheerio.load(html);
             // Now, we grab every h2 within an article tag, and do the following:
             $(".headlineStack__list li").each(function(i, element) {
@@ -51,15 +48,17 @@ module.exports = function(app) {
                         console.log(err);
                     }
                     // Or log the doc
-                    else {
-                        console.log(doc);
-                    }
+                    //else {
+                    //    console.log(doc);
+                   // }
                 });
 
             });
         });
         // Tell the browser that we finished scraping the text
-        res.send("Scrape Complete");
+        //res.send("Scrape Complete");
+        console.log("Got to redirect");
+        res.redirect("/");
     });
 
 // This will get the articles we scraped from the mongoDB
@@ -124,6 +123,28 @@ module.exports = function(app) {
                         res.send(newdoc);
                     }
                 });
+            }
+        });
+    });
+
+    /**
+     * Drops all articles from Mongo database.
+     */
+    app.get('/dump-articles', function(req, res) {
+        Article.remove({}, function (err) {
+            if (err) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Oops, this failed.'
+                });
+            }
+            else {
+             //   res.status(200).json({
+             //       success: true,
+             //       message: 'Articles are no longer with us.'
+             //   });
+                console.log("Got to redirect after destroy");
+                res.redirect("/");
             }
         });
     });

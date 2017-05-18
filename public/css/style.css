@@ -122,3 +122,12 @@ textarea {
     color: #F52F47;
     text-decoration: none;
 }
+
+a {
+    color: #e61459;
+}
+
+.add-a-note {
+    padding: 5px;
+    margin: 5px;
+}

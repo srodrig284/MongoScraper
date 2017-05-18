@@ -17,13 +17,12 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-      // GET route for getting all of the burgers
+      // GET route for getting all of the articles
           Article.find({}).then(function(dbArticles) {
               var hbsObject = {
                   articles: dbArticles
               };
               res.render("index", hbsObject);
-
           });
   });
 };

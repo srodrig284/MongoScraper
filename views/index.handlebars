@@ -4,10 +4,31 @@
     <ul>
       {{#each articles}}
           <li>
-            {{this.title}}
-            {{this.link}}
+              <strong>{{this.title}}</strong>
+            <br>
+            <a href="http://www.espn.com"{{this.link}}>READ THIS ARTICLE</a>
+            <br>
+            <form class="add-a-note" action="/articles/{{this._id}}" method="POST">
+                <button class="btn btn-info" type="submit">Add A Note</button>
+            </form>
           </li>
       {{/each}}
     </ul>
   </div>
+
+    <div id="notes">
+        <ul>
+            {{#each articles}}
+                <li>
+                    <strong>{{this.title}}</strong>
+                    <br>
+                    <a href="http://www.espn.com"{{this.link}}>READ THIS ARTICLE</a>
+                    <br>
+                    <form class="add-a-note" action="/articles/{{this._id}}" method="POST">
+                        <button class="btn btn-info" type="submit">Add A Note</button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
 </div>
