@@ -40,6 +40,8 @@ app.set("view engine", "handlebars");
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
+const PORT = process.env.PORT || 3000;
+
 // Database configuration with mongoose
 var databaseUri = 'mongodb://localhost/espnarticles';
 
@@ -65,6 +67,6 @@ db.once("open", function() {
 });
 
 // Listen on port 3000
-//app.listen(3000, function() {
-//    console.log("App running on port 3000!");
-//});
+app.listen(PORT, function() {
+    console.log("App running on port 3000!");
+});
