@@ -54,11 +54,11 @@ module.exports = function(app) {
                 });
 
             });
+            res.redirect("/");
         });
         // Tell the browser that we finished scraping the text
         //res.send("Scrape Complete");
-        console.log("Got to redirect");
-        res.redirect("/");
+
     });
 
 // This will get the articles we scraped from the mongoDB
