@@ -92,7 +92,7 @@ module.exports = function(app) {
                 if (error) {
                     res.send(error);
                 }
-                // Or, send our results to the browser, which will now include the books stored in the library
+                // Or, send our results to the browser, which will now include the notes stored in the library
                 else {
                     res.send(doc);
                 }
